@@ -6,12 +6,20 @@
     <title>BVM.Logistic | Вантажні перевезення по Україні</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // Гарантоване завантаження сайту з самого верху
+        // 1. Очищення якоря # з URL при завантаженні, щоб браузер не мотав вниз
+        if (window.location.hash) {
+            history.replaceState(null, null, window.location.pathname + window.location.search);
+        }
+
+        // 2. Скидання пам'яті скролу браузера
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
-        window.addEventListener('DOMContentLoaded', () => {
-            window.scrollTo(0, 0);
+
+        // 3. Примусова прокрутка вгору при відкритті/оновленні
+        window.addEventListener('beforeunload', () => window.scrollTo(0, 0));
+        window.addEventListener('load', () => {
+            setTimeout(() => window.scrollTo(0, 0), 10);
         });
 
         tailwind.config = {
@@ -70,7 +78,7 @@
     <section class="relative pt-32 pb-20 md:pt-44 md:pb-28 px-4 text-center bg-cover bg-center border-b border-accent" style="background-image: linear-gradient(rgba(36, 39, 43, 0.85), rgba(36, 39, 43, 0.95)), url('bg-hero.jpg');">
         
         <div class="container mx-auto max-w-4xl">
-            <!-- Маленький бейдж -->
+            <!-- Бейдж -->
             <div class="inline-flex items-center gap-2 bg-gray-800/90 text-accent border border-gray-700 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold mb-6">
                 <span>🚛</span> <span>Вантажні перевезення по всій Україні</span>
             </div>
@@ -111,17 +119,17 @@
                         <div>
                             <h3 class="font-bold text-white mb-2 flex items-center gap-2">📦 Внутрішні габарити (кузов)</h3>
                             <ul class="text-gray-300 space-y-1 text-sm">
-                                <li>Довжина: <span class="text-accent font-semibold">4.95 м.</span></li>
-                                <li>Ширина: <span class="text-accent font-semibold">2.15 м.</span></li>
-                                <li>Висота: <span class="text-accent font-semibold">2.30 м.</span></li>
+                                <li>Довжина: <span class="text-accent font-semibold">4.95 м</span></li>
+                                <li>Ширина: <span class="text-accent font-semibold">2.15 м</span></li>
+                                <li>Висота: <span class="text-accent font-semibold">2.30 м</span></li>
                             </ul>
                         </div>
                         <div>
                             <h3 class="font-bold text-white mb-2 flex items-center gap-2">🚐 Зовнішні габарити (авто)</h3>
                             <ul class="text-gray-300 space-y-1 text-sm">
-                                <li>Довжина: <span class="text-accent font-semibold">6.90 м.</span></li>
-                                <li>Ширина: <span class="text-accent font-semibold">2.30 м.</span></li>
-                                <li>Висота: <span class="text-accent font-semibold">3.30 м.</span></li>
+                                <li>Довжина: <span class="text-accent font-semibold">6.90 м</span></li>
+                                <li>Ширина: <span class="text-accent font-semibold">2.30 м</span></li>
+                                <li>Висота: <span class="text-accent font-semibold">3.30 м</span></li>
                             </ul>
                         </div>
                     </div>
