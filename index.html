@@ -16,19 +16,35 @@
                 }
             }
         }
+
+        function copyText(text, btnId) {
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.getElementById(btnId);
+                const originalText = btn.innerText;
+                btn.innerText = '✓ Скопійовано';
+                btn.classList.add('bg-green-600', 'text-white');
+                btn.classList.remove('bg-gray-800', 'text-accent');
+                
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.classList.remove('bg-green-600', 'text-white');
+                    btn.classList.add('bg-gray-800', 'text-accent');
+                }, 2000);
+            });
+        }
     </script>
 </head>
 <body class="bg-graphite text-white font-sans antialiased">
     
     <!-- Шапка -->
     <header class="fixed w-full top-0 z-50 bg-graphite/95 backdrop-blur-sm border-b border-gray-700">
-        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="text-3xl font-extrabold tracking-wider"><span class="text-white">BVM.</span><span class="text-accent">Logistic</span></div>
-            <div class="flex items-center gap-6">
-                <a href="tel:+380504563287" class="text-xl md:text-2xl font-bold text-accent hover:text-yellow-300 transition">
-                    📞 +38 050 456 32 87
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl md:text-3xl font-extrabold tracking-wider"><span class="text-white">BVM.</span><span class="text-accent">Logistic</span></div>
+            <div class="flex items-center gap-4 md:gap-6">
+                <a href="tel:+380504563287" class="text-lg md:text-2xl font-bold text-accent hover:text-yellow-300 transition">
+                    📞 050 456 32 87
                 </a>
-                <a href="#contacts" class="hidden md:inline-block border border-accent text-accent px-4 py-2 rounded hover:bg-accent hover:text-graphite transition font-semibold">
+                <a href="#contacts" class="bg-accent text-graphite font-bold px-4 py-2 rounded hover:bg-yellow-500 transition text-sm md:text-base">
                     Зв'язатися
                 </a>
             </div>
@@ -88,15 +104,13 @@
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <!-- Місце під фото авто (замініть car.jpg у репозиторії) -->
-                <div class="rounded-xl overflow-hidden border border-gray-700 bg-gray-800 aspect-square flex items-center justify-center relative group">
-                    <img src="car.jpg" alt="Зовнішній вигляд авто" class="object-cover w-full h-full absolute inset-0 z-10 text-transparent" onerror="this.style.display='none'">
-                    <span class="text-gray-500 z-0 text-center px-4">Завантажте фото авто<br>(car.jpg)</span>
+                <div class="rounded-xl overflow-hidden border border-gray-700 bg-gray-800 aspect-square flex items-center justify-center relative">
+                    <img src="car.jpg" alt="Mercedes-Benz Sprinter" class="object-cover w-full h-full absolute inset-0 z-10" onerror="this.style.display='none'">
+                    <span class="text-gray-500 z-0 text-center px-4">Фото авто<br>(car.jpg)</span>
                 </div>
-                <!-- Місце під фото кузова (замініть cargo.jpg у репозиторії) -->
-                <div class="rounded-xl overflow-hidden border border-gray-700 bg-gray-800 aspect-square flex items-center justify-center relative group">
-                    <img src="cargo.jpg" alt="Вантажний відсік" class="object-cover w-full h-full absolute inset-0 z-10 text-transparent" onerror="this.style.display='none'">
-                    <span class="text-gray-500 z-0 text-center px-4">Завантажте фото кузова<br>(cargo.jpg)</span>
+                <div class="rounded-xl overflow-hidden border border-gray-700 bg-gray-800 aspect-square flex items-center justify-center relative">
+                    <img src="cargo.jpg" alt="Вантажний відсік" class="object-cover w-full h-full absolute inset-0 z-10" onerror="this.style.display='none'">
+                    <span class="text-gray-500 z-0 text-center px-4">Фото кузова<br>(cargo.jpg)</span>
                 </div>
             </div>
         </section>
@@ -105,28 +119,51 @@
         <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             
             <!-- Блок Водія -->
-            <div class="bg-gray-900 p-8 rounded-xl border border-gray-800 flex flex-col md:flex-row gap-6 items-center md:items-start">
+            <div class="bg-gray-900 p-8 rounded-xl border border-gray-800 flex flex-col sm:flex-row gap-6 items-center sm:items-start">
                 <div class="w-32 h-32 shrink-0 rounded-full overflow-hidden border-2 border-accent bg-gray-800 flex items-center justify-center relative">
-                    <img src="driver.jpg" alt="Водій" class="object-cover w-full h-full absolute inset-0 z-10 text-transparent" onerror="this.style.display='none'">
+                    <img src="driver.jpg" alt="Бражнік Володимир Михайлович" class="object-cover w-full h-full absolute inset-0 z-10" onerror="this.style.display='none'">
                     <span class="text-gray-500 z-0 text-xs text-center">Фото водія<br>(driver.jpg)</span>
                 </div>
-                <div class="text-center md:text-left">
+                <div class="text-center sm:text-left">
                     <p class="text-sm text-accent font-bold mb-1 uppercase tracking-wide">Директор / Водій</p>
                     <h3 class="text-2xl font-bold text-white mb-2">Бражнік Володимир Михайлович</h3>
                     <p class="text-gray-400 mb-1">Посвідчення водія: <span class="text-white font-mono">ВХН 449781</span></p>
-                    <p class="text-gray-400">Досвідчений перевізник, гарантія безпеки вашого вантажу.</p>
+                    <p class="text-gray-400 text-sm mt-2">Досвідчений перевізник. Гарантія вчасної доставки та дбайливого ставлення до вантажу.</p>
                 </div>
             </div>
 
-            <!-- Блок Реквізитів -->
-            <div class="bg-gray-900 p-8 rounded-xl border border-gray-800">
-                <h3 class="text-xl font-bold uppercase border-l-4 border-accent pl-3 mb-6">Реквізити ФОП</h3>
+            <!-- Блок Реквізитів з можливості копіювання -->
+            <div class="bg-gray-900 p-8 rounded-xl border border-gray-800 space-y-4">
+                <h3 class="text-xl font-bold uppercase border-l-4 border-accent pl-3 mb-4">Реквізити ФОП</h3>
+                
                 <div class="space-y-3 text-sm text-gray-300">
-                    <p><span class="text-gray-500">Назва:</span> <span class="font-bold text-white text-base">ФОП Бражнік В.М.</span></p>
-                    <p><span class="text-gray-500">ЄДРПОУ:</span> <span class="font-mono text-white">2540905899</span></p>
-                    <p><span class="text-gray-500">IBAN:</span> <span class="font-mono text-accent">UA 22 3052 9900 0002 6000 0505 2322 8</span></p>
+                    <div>
+                        <span class="text-gray-500 block text-xs">Назва:</span>
+                        <span class="font-bold text-white text-base">ФОП Бражнік В.М.</span>
+                    </div>
+
+                    <div class="flex justify-between items-center bg-gray-800 p-2.5 rounded border border-gray-700">
+                        <div>
+                            <span class="text-gray-400 text-xs block">ЄДРПОУ:</span>
+                            <span class="font-mono text-white font-bold">2540905899</span>
+                        </div>
+                        <button id="btn-edrpou" onclick="copyText('2540905899', 'btn-edrpou')" class="bg-gray-700 hover:bg-gray-600 text-accent text-xs font-semibold py-1.5 px-3 rounded transition">
+                            Копіювати
+                        </button>
+                    </div>
+
+                    <div class="flex justify-between items-center bg-gray-800 p-2.5 rounded border border-gray-700">
+                        <div class="overflow-hidden mr-2">
+                            <span class="text-gray-400 text-xs block">IBAN (ПриватБанк):</span>
+                            <span class="font-mono text-accent font-bold text-xs sm:text-sm truncate block">UA 22 3052 9900 0002 6000 0505 2322 8</span>
+                        </div>
+                        <button id="btn-iban" onclick="copyText('UA223052990000026000050523228', 'btn-iban')" class="bg-gray-700 hover:bg-gray-600 text-accent text-xs font-semibold py-1.5 px-3 rounded shrink-0 transition">
+                            Копіювати
+                        </button>
+                    </div>
+
                     <p><span class="text-gray-500">Банк:</span> АТ КБ "Приват Банк" (МФО 305299)</p>
-                    <hr class="border-gray-700 my-2">
+                    <hr class="border-gray-800 my-2">
                     <p><span class="text-gray-500">Адреса та зберігання авто:</span><br> Україна, 51400, Дніпропетровська обл., м. Павлоград, вул. Садова 19</p>
                 </div>
             </div>
@@ -134,9 +171,58 @@
 
     </main>
 
-    <!-- Контакти (Футер) -->
+    <!-- Контакти та Месенджери -->
     <footer id="contacts" class="bg-black py-16 border-t-4 border-accent">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold uppercase mb-10">Як зв'язатися</h2>
+            <h2 class="text-3xl font-extrabold uppercase mb-2">Як зв'язатися</h2>
+            <p class="text-gray-400 mb-10">Оберіть зручний спосіб для зв'язку чи прорахунку вартості</p>
             
-            <div class="flex flex-wrap justify-center gap
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
+                
+                <!-- Viber -->
+                <a href="viber://chat?number=%2B380504563287" class="flex flex-col items-center p-6 bg-gray-900 rounded-xl border border-gray-800 hover:border-[#7360f2] hover:bg-gray-800 transition group">
+                    <div class="w-12 h-12 mb-3 text-[#7360f2] flex items-center justify-center">
+                        <svg class="w-10 h-10 fill-current" viewBox="0 0 24 24"><path d="M11.33 2C6.07 2 1.83 5.92 1.83 10.76c0 2.76 1.37 5.23 3.53 6.84V21l3.22-1.77c.88.24 1.8.37 2.75.37 5.26 0 9.5-3.92 9.5-8.76S16.59 2 11.33 2zm4.7 12.06c-.23.64-1.15 1.2-1.8 1.25-.43.03-1-.08-3.23-.99-2.85-1.17-4.69-4.05-4.83-4.24-.14-.19-1.16-1.54-1.16-2.94 0-1.4.73-2.09 1-2.37.26-.28.57-.35.77-.35.2 0 .39.01.56.02.18.01.42-.07.66.5.24.58.82 2 .89 2.14.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.16-.3.36-.43.48-.14.13-.29.28-.13.56.16.28.72 1.18 1.54 1.91 1.06.94 1.95 1.23 2.23 1.37.28.14.45.12.61-.07.17-.19.72-.84.92-1.13.2-.28.39-.23.66-.14.26.09 1.68.79 1.97.93.29.14.48.22.55.34.07.12.07.7-.16 1.34z"/></svg>
+                    </div>
+                    <span class="font-bold text-white group-hover:text-[#7360f2] transition">Viber</span>
+                    <span class="text-xs text-gray-400 mt-1">050 456 32 87</span>
+                </a>
+
+                <!-- Telegram -->
+                <a href="https://t.me/+380504563287" target="_blank" class="flex flex-col items-center p-6 bg-gray-900 rounded-xl border border-gray-800 hover:border-[#229ED9] hover:bg-gray-800 transition group">
+                    <div class="w-12 h-12 mb-3 text-[#229ED9] flex items-center justify-center">
+                        <svg class="w-10 h-10 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.25.38-.51 1.07-.78 4.18-1.82 6.97-3.02 8.37-3.61 3.99-1.66 4.82-1.95 5.36-1.96.12 0 .38.03.55.17.14.12.18.28.2.45-.02.07-.02.16-.03.26z"/></svg>
+                    </div>
+                    <span class="font-bold text-white group-hover:text-[#229ED9] transition">Telegram</span>
+                    <span class="text-xs text-gray-400 mt-1">050 456 32 87</span>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/380504563287" target="_blank" class="flex flex-col items-center p-6 bg-gray-900 rounded-xl border border-gray-800 hover:border-[#25D366] hover:bg-gray-800 transition group">
+                    <div class="w-12 h-12 mb-3 text-[#25D366] flex items-center justify-center">
+                        <svg class="w-10 h-10 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    </div>
+                    <span class="font-bold text-white group-hover:text-[#25D366] transition">WhatsApp</span>
+                    <span class="text-xs text-gray-400 mt-1">050 456 32 87</span>
+                </a>
+
+                <!-- Lardi Trans / Телефон -->
+                <a href="tel:+380686796182" class="flex flex-col items-center p-6 bg-gray-900 rounded-xl border border-gray-800 hover:border-accent hover:bg-gray-800 transition group">
+                    <div class="w-12 h-12 mb-3 text-accent flex items-center justify-center">
+                        <svg class="w-10 h-10 fill-current" viewBox="0 0 24 24"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM12 3v10l3-3h5V3h-8z"/></svg>
+                    </div>
+                    <span class="font-bold text-white group-hover:text-accent transition">Lardi-Trans / Дзвінок</span>
+                    <span class="text-xs text-accent mt-1">068 679 61 82</span>
+                </a>
+
+            </div>
+
+            <div class="border-t border-gray-900 pt-8 max-w-2xl mx-auto">
+                <p class="text-xl font-bold text-accent mb-1">📞 050 456 32 87</p>
+                <p class="text-gray-400 text-sm">Працюємо по безготівковому розрахунку (ФОП 3 група) та за готівку.</p>
+                <p class="text-gray-600 text-xs mt-6">© 2026 BVM.Logistic. Всі права захищено.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
