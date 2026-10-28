@@ -6,6 +6,14 @@
     <title>BVM.Logistic | Вантажні перевезення по Україні</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+        // Гарантоване завантаження сайту з самого верху
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.addEventListener('DOMContentLoaded', () => {
+            window.scrollTo(0, 0);
+        });
+
         tailwind.config = {
             theme: {
                 extend: {
@@ -36,39 +44,57 @@
 </head>
 <body class="bg-graphite text-white font-sans antialiased">
     
-    <!-- Шапка (Адаптивна для мобільних) -->
-    <header class="fixed w-full top-0 z-50 bg-graphite/95 backdrop-blur-sm border-b border-gray-700 shadow-lg">
-        <div class="container mx-auto px-4 py-3 flex flex-wrap sm:flex-nowrap justify-between items-center gap-2">
-            <div class="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-wider shrink-0">
+    <!-- Шапка (Фіксована, адаптивна) -->
+    <header class="fixed w-full top-0 z-50 bg-graphite/95 backdrop-blur-md border-b border-gray-700 shadow-xl">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            
+            <!-- Логотип -->
+            <a href="#" class="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-wider shrink-0 flex items-center">
                 <span class="text-white">BVM.</span><span class="text-accent">Logistic</span>
-            </div>
+            </a>
+
+            <!-- Контакти у шапці -->
             <div class="flex items-center gap-2 sm:gap-4">
-                <a href="tel:+380504563287" class="text-sm sm:text-xl md:text-2xl font-bold text-accent hover:text-yellow-300 transition whitespace-nowrap pt-0.5">
-                    📞 050 456 32 87
+                <a href="tel:+380504563287" class="flex items-center gap-1.5 text-sm sm:text-lg md:text-xl font-bold text-accent hover:text-yellow-300 transition whitespace-nowrap bg-gray-800/80 px-3 py-1.5 rounded-lg border border-gray-700">
+                    <span>📞</span> <span>050 456 32 87</span>
                 </a>
-                <a href="#contacts" class="bg-accent text-graphite font-bold px-3 py-1.5 sm:px-4 sm:py-2 rounded hover:bg-yellow-500 transition text-xs sm:text-base shrink-0">
+                <a href="#contacts" class="hidden sm:inline-block bg-accent text-graphite font-bold px-4 py-2 rounded-lg hover:bg-yellow-500 transition text-sm">
                     Зв'язатися
                 </a>
             </div>
+
         </div>
     </header>
 
     <!-- Головний екран (Hero) -->
-    <section class="relative pt-36 pb-20 md:pt-44 md:pb-28 px-4 text-center bg-cover bg-center border-b border-accent" style="background-image: linear-gradient(rgba(36, 39, 43, 0.8), rgba(36, 39, 43, 0.95)), url('bg-hero.jpg');">
-        <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-6 uppercase leading-tight">
-            Надійні вантажні перевезення <br><span class="text-accent">по всій Україні</span>
-        </h1>
-        <p class="text-lg sm:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Будь-яка форма розрахунку (без ПДВ). Завантаження: бокове та заднє. Вантажопідйомність до 3.0 тонн.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4">
-            <a href="tel:+380504563287" class="bg-accent text-graphite font-bold text-base sm:text-lg py-3.5 px-6 sm:px-8 rounded-lg hover:bg-yellow-500 transition shadow-[0_0_15px_rgba(245,197,66,0.4)]">
-                Зателефонувати
-            </a>
-            <a href="#contacts" class="bg-gray-800 border border-gray-600 text-white font-bold text-base sm:text-lg py-3.5 px-6 sm:px-8 rounded-lg hover:border-accent transition">
-                Месенджери
-            </a>
+    <section class="relative pt-32 pb-20 md:pt-44 md:pb-28 px-4 text-center bg-cover bg-center border-b border-accent" style="background-image: linear-gradient(rgba(36, 39, 43, 0.85), rgba(36, 39, 43, 0.95)), url('bg-hero.jpg');">
+        
+        <div class="container mx-auto max-w-4xl">
+            <!-- Маленький бейдж -->
+            <div class="inline-flex items-center gap-2 bg-gray-800/90 text-accent border border-gray-700 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold mb-6">
+                <span>🚛</span> <span>Вантажні перевезення по всій Україні</span>
+            </div>
+
+            <!-- Головний заголовок -->
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-6 uppercase leading-tight tracking-wide">
+                Швидка та надійна <br><span class="text-accent">доставка вантажів</span>
+            </h1>
+
+            <p class="text-base sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+                Mercedes-Benz Sprinter • До 3.0 тонн • Бокове та заднє завантаження. <br class="hidden sm:inline">Будь-яка форма розрахунку (ФОП 3 група, без ПДВ).
+            </p>
+
+            <!-- Кнопки дій -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="tel:+380504563287" class="w-full sm:w-auto bg-accent text-graphite font-extrabold text-base sm:text-lg py-3.5 px-8 rounded-xl hover:bg-yellow-500 transition shadow-[0_0_20px_rgba(245,197,66,0.3)] flex items-center justify-center gap-2">
+                    <span>📞</span> <span>Зателефонувати</span>
+                </a>
+                <a href="#contacts" class="w-full sm:w-auto bg-gray-800 border border-gray-600 text-white font-bold text-base sm:text-lg py-3.5 px-8 rounded-xl hover:border-accent hover:text-accent transition flex items-center justify-center gap-2">
+                    <span>💬</span> <span>Написати в месенджер</span>
+                </a>
+            </div>
         </div>
+
     </section>
 
     <main class="container mx-auto px-4 py-16 space-y-20">
@@ -155,7 +181,7 @@
                         </button>
                     </div>
 
-                    <!-- IBAN (Оновлена версія для мобільних) -->
+                    <!-- IBAN -->
                     <div class="bg-gray-800 p-3 rounded border border-gray-700 space-y-2">
                         <div class="flex justify-between items-center">
                             <span class="text-gray-400 text-xs font-semibold">IBAN (ПриватБанк):</span>
