@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вантажні перевезення по Україні | До 3 тонн</title>
+    <title>BVM.Logistic | Вантажні перевезення по Україні</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -19,73 +19,124 @@
     </script>
 </head>
 <body class="bg-graphite text-white font-sans antialiased">
+    
     <!-- Шапка -->
-    <header class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center border-b border-gray-700 gap-4">
-        <div class="text-2xl font-bold uppercase tracking-wider">Вантаж<span class="text-accent">Транс</span></div>
-        <a href="tel:+380504563287" class="text-2xl font-bold text-accent hover:text-yellow-300 transition flex items-center gap-2">
-            📞 +38 050 456 32 87
-        </a>
+    <header class="fixed w-full top-0 z-50 bg-graphite/95 backdrop-blur-sm border-b border-gray-700">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-3xl font-extrabold tracking-wider"><span class="text-white">BVM.</span><span class="text-accent">Logistic</span></div>
+            <div class="flex items-center gap-6">
+                <a href="tel:+380504563287" class="text-xl md:text-2xl font-bold text-accent hover:text-yellow-300 transition">
+                    📞 +38 050 456 32 87
+                </a>
+                <a href="#contacts" class="hidden md:inline-block border border-accent text-accent px-4 py-2 rounded hover:bg-accent hover:text-graphite transition font-semibold">
+                    Зв'язатися
+                </a>
+            </div>
+        </div>
     </header>
 
     <!-- Головний екран (Hero) -->
-    <!-- Замініть 'bg-hero.jpg' на назву вашого фото, коли завантажите його в репозиторій -->
-    <section class="relative bg-cover bg-center py-20 px-4 text-center" style="background-image: linear-gradient(rgba(36, 39, 43, 0.85), rgba(36, 39, 43, 0.95)), url('bg-hero.jpg');">
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-4 uppercase leading-tight">
-            Вантажні перевезення <br><span class="text-accent">по Україні</span>
+    <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 px-4 text-center bg-cover bg-center border-b border-accent" style="background-image: linear-gradient(rgba(36, 39, 43, 0.8), rgba(36, 39, 43, 0.95)), url('bg-hero.jpg');">
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-6 uppercase leading-tight">
+            Надійні вантажні перевезення <br><span class="text-accent">по всій Україні</span>
         </h1>
-        <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Безпечна та швидка доставка вантажів. Домашні та офісні переїзди під ключ.</p>
-        <a href="tel:+380504563287" class="inline-block bg-accent text-graphite font-bold text-lg py-4 px-10 rounded-lg hover:bg-yellow-500 transition shadow-[0_0_15px_rgba(245,197,66,0.4)]">
-            Зателефонувати
-        </a>
+        <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+            Будь-яка форма розрахунку (без ПДВ). Завантаження: бокове та заднє. Вантажопідйомність до 3.0 тонн.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="tel:+380504563287" class="bg-accent text-graphite font-bold text-lg py-4 px-8 rounded-lg hover:bg-yellow-500 transition shadow-[0_0_15px_rgba(245,197,66,0.4)]">
+                Зателефонувати
+            </a>
+            <a href="#contacts" class="bg-gray-800 border border-gray-600 text-white font-bold text-lg py-4 px-8 rounded-lg hover:border-accent transition">
+                Месенджери
+            </a>
+        </div>
     </section>
 
-    <!-- Технічні характеристики -->
-    <section class="py-12 bg-gray-900 border-y border-gray-800">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-center gap-6 text-center">
-            <div class="bg-graphite p-8 rounded-xl shadow-lg border border-gray-700 md:w-1/3">
-                <div class="text-accent text-5xl mb-4">📦</div>
-                <h3 class="text-2xl font-bold text-accent mb-4">Габарити кузова</h3>
-                <ul class="text-gray-300 text-lg space-y-2">
-                    <li>Довжина: <span class="font-bold text-white">4950 мм</span></li>
-                    <li>Ширина: <span class="font-bold text-white">2150 мм</span></li>
-                    <li>Висота: <span class="font-bold text-white">2300 мм</span></li>
-                </ul>
-            </div>
-            <div class="bg-graphite p-8 rounded-xl shadow-lg border border-gray-700 md:w-1/3 flex flex-col justify-center">
-                <div class="text-accent text-5xl mb-4">⚖️</div>
-                <h3 class="text-2xl font-bold text-accent mb-2">Вантажопідйомність</h3>
-                <p class="text-white text-3xl font-bold mb-4">до 3 тонн</p>
-                <div class="inline-block bg-gray-800 text-accent font-semibold py-2 px-4 rounded-full text-sm">
-                    Офіційно: ФОП 3 група
+    <main class="container mx-auto px-4 py-16 space-y-20">
+        
+        <!-- Характеристики Авто та Фото -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            <div class="space-y-6">
+                <h2 class="text-3xl font-bold uppercase border-l-4 border-accent pl-4">Автомобіль та Вантаж</h2>
+                <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+                    <p class="text-2xl font-bold text-accent mb-2">Mercedes-Benz Sprinter</p>
+                    <p class="text-gray-400 font-mono mb-6">ДНЗ: KE 9779 AX | Вантажопідйомність: 3.0 т</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="font-bold text-white mb-2 flex items-center gap-2">📦 Внутрішні габарити (кузов)</h3>
+                            <ul class="text-gray-300 space-y-1 text-sm">
+                                <li>Довжина: <span class="text-accent font-semibold">4950 мм</span></li>
+                                <li>Ширина: <span class="text-accent font-semibold">2150 мм</span></li>
+                                <li>Висота: <span class="text-accent font-semibold">2300 мм</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white mb-2 flex items-center gap-2">🚐 Зовнішні габарити (авто)</h3>
+                            <ul class="text-gray-300 space-y-1 text-sm">
+                                <li>Довжина: <span class="text-accent font-semibold">6900 мм</span></li>
+                                <li>Ширина: <span class="text-accent font-semibold">2300 мм</span></li>
+                                <li>Висота: <span class="text-accent font-semibold">3300 мм</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-3 bg-gray-800 rounded border border-gray-700">
+                        <p class="text-sm font-semibold"><span class="text-accent">Типи завантаження:</span> Бокове та заднє завантаження.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Місце під фото авто (замініть car.jpg у репозиторії) -->
+                <div class="rounded-xl overflow-hidden border border-gray-700 bg-gray-800 aspect-square flex items-center justify-center relative group">
+                    <img src="car.jpg" alt="Зовнішній вигляд авто" class="object-cover w-full h-full absolute inset-0 z-10 text-transparent" onerror="this.style.display='none'">
+                    <span class="text-gray-500 z-0 text-center px-4">Завантажте фото авто<br>(car.jpg)</span>
+                </div>
+                <!-- Місце під фото кузова (замініть cargo.jpg у репозиторії) -->
+                <div class="rounded-xl overflow-hidden border border-gray-700 bg-gray-800 aspect-square flex items-center justify-center relative group">
+                    <img src="cargo.jpg" alt="Вантажний відсік" class="object-cover w-full h-full absolute inset-0 z-10 text-transparent" onerror="this.style.display='none'">
+                    <span class="text-gray-500 z-0 text-center px-4">Завантажте фото кузова<br>(cargo.jpg)</span>
+                </div>
+            </div>
+        </section>
 
-    <!-- Послуги -->
-    <section class="container mx-auto px-4 py-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 uppercase">Наші послуги</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="p-6 border border-gray-700 rounded-lg hover:border-accent transition">
-                <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-accent">🏠</span> Домашні перевезення</h3>
-                <p class="text-gray-400">Квартири, будинки, особисті речі. Надійне кріплення вантажу.</p>
+        <!-- Водій та Реквізити -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            
+            <!-- Блок Водія -->
+            <div class="bg-gray-900 p-8 rounded-xl border border-gray-800 flex flex-col md:flex-row gap-6 items-center md:items-start">
+                <div class="w-32 h-32 shrink-0 rounded-full overflow-hidden border-2 border-accent bg-gray-800 flex items-center justify-center relative">
+                    <img src="driver.jpg" alt="Водій" class="object-cover w-full h-full absolute inset-0 z-10 text-transparent" onerror="this.style.display='none'">
+                    <span class="text-gray-500 z-0 text-xs text-center">Фото водія<br>(driver.jpg)</span>
+                </div>
+                <div class="text-center md:text-left">
+                    <p class="text-sm text-accent font-bold mb-1 uppercase tracking-wide">Директор / Водій</p>
+                    <h3 class="text-2xl font-bold text-white mb-2">Бражнік Володимир Михайлович</h3>
+                    <p class="text-gray-400 mb-1">Посвідчення водія: <span class="text-white font-mono">ВХН 449781</span></p>
+                    <p class="text-gray-400">Досвідчений перевізник, гарантія безпеки вашого вантажу.</p>
+                </div>
             </div>
-            <div class="p-6 border border-gray-700 rounded-lg hover:border-accent transition">
-                <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-accent">🏢</span> Офісні перевезення</h3>
-                <p class="text-gray-400">Меблі, техніка, документи. Рахуємо в одну сторону.</p>
-            </div>
-            <div class="p-6 border border-gray-700 rounded-lg hover:border-accent transition">
-                <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-accent">🚚</span> Доставка вантажів</h3>
-                <p class="text-gray-400">Комерційні товари, обладнання, будматеріали. Будь-які маршрути.</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- Підвал -->
-    <footer class="bg-gray-900 border-t border-gray-800 py-10 text-center">
-        <p class="text-accent font-bold text-3xl mb-4">📞 +38 050 456 32 87</p>
-        <p class="text-gray-400 text-sm">Працюємо по безготівковому розрахунку (ФОП 3 група) та за готівку.</p>
-        <p class="text-gray-500 text-sm mt-4">Вантажні перевезення по всій Україні</p>
-    </footer>
-</body>
-</html>
+            <!-- Блок Реквізитів -->
+            <div class="bg-gray-900 p-8 rounded-xl border border-gray-800">
+                <h3 class="text-xl font-bold uppercase border-l-4 border-accent pl-3 mb-6">Реквізити ФОП</h3>
+                <div class="space-y-3 text-sm text-gray-300">
+                    <p><span class="text-gray-500">Назва:</span> <span class="font-bold text-white text-base">ФОП Бражнік В.М.</span></p>
+                    <p><span class="text-gray-500">ЄДРПОУ:</span> <span class="font-mono text-white">2540905899</span></p>
+                    <p><span class="text-gray-500">IBAN:</span> <span class="font-mono text-accent">UA 22 3052 9900 0002 6000 0505 2322 8</span></p>
+                    <p><span class="text-gray-500">Банк:</span> АТ КБ "Приват Банк" (МФО 305299)</p>
+                    <hr class="border-gray-700 my-2">
+                    <p><span class="text-gray-500">Адреса та зберігання авто:</span><br> Україна, 51400, Дніпропетровська обл., м. Павлоград, вул. Садова 19</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Контакти (Футер) -->
+    <footer id="contacts" class="bg-black py-16 border-t-4 border-accent">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold uppercase mb-10">Як зв'язатися</h2>
+            
+            <div class="flex flex-wrap justify-center gap
