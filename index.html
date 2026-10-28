@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вантажні перевезення по Україні | До 3 тонн</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        graphite: '#24272B',
+                        accent: '#F5C542',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-graphite text-white font-sans antialiased">
+    <!-- Шапка -->
+    <header class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center border-b border-gray-700 gap-4">
+        <div class="text-2xl font-bold uppercase tracking-wider">Вантаж<span class="text-accent">Транс</span></div>
+        <a href="tel:+380504563287" class="text-2xl font-bold text-accent hover:text-yellow-300 transition flex items-center gap-2">
+            📞 +38 050 456 32 87
+        </a>
+    </header>
+
+    <!-- Головний екран (Hero) -->
+    <!-- Замініть 'bg-hero.jpg' на назву вашого фото, коли завантажите його в репозиторій -->
+    <section class="relative bg-cover bg-center py-20 px-4 text-center" style="background-image: linear-gradient(rgba(36, 39, 43, 0.85), rgba(36, 39, 43, 0.95)), url('bg-hero.jpg');">
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-4 uppercase leading-tight">
+            Вантажні перевезення <br><span class="text-accent">по Україні</span>
+        </h1>
+        <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Безпечна та швидка доставка вантажів. Домашні та офісні переїзди під ключ.</p>
+        <a href="tel:+380504563287" class="inline-block bg-accent text-graphite font-bold text-lg py-4 px-10 rounded-lg hover:bg-yellow-500 transition shadow-[0_0_15px_rgba(245,197,66,0.4)]">
+            Зателефонувати
+        </a>
+    </section>
+
+    <!-- Технічні характеристики -->
+    <section class="py-12 bg-gray-900 border-y border-gray-800">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-center gap-6 text-center">
+            <div class="bg-graphite p-8 rounded-xl shadow-lg border border-gray-700 md:w-1/3">
+                <div class="text-accent text-5xl mb-4">📦</div>
+                <h3 class="text-2xl font-bold text-accent mb-4">Габарити кузова</h3>
+                <ul class="text-gray-300 text-lg space-y-2">
+                    <li>Довжина: <span class="font-bold text-white">4950 мм</span></li>
+                    <li>Ширина: <span class="font-bold text-white">2150 мм</span></li>
+                    <li>Висота: <span class="font-bold text-white">2300 мм</span></li>
+                </ul>
+            </div>
+            <div class="bg-graphite p-8 rounded-xl shadow-lg border border-gray-700 md:w-1/3 flex flex-col justify-center">
+                <div class="text-accent text-5xl mb-4">⚖️</div>
+                <h3 class="text-2xl font-bold text-accent mb-2">Вантажопідйомність</h3>
+                <p class="text-white text-3xl font-bold mb-4">до 3 тонн</p>
+                <div class="inline-block bg-gray-800 text-accent font-semibold py-2 px-4 rounded-full text-sm">
+                    Офіційно: ФОП 3 група
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Послуги -->
+    <section class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 uppercase">Наші послуги</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-6 border border-gray-700 rounded-lg hover:border-accent transition">
+                <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-accent">🏠</span> Домашні перевезення</h3>
+                <p class="text-gray-400">Квартири, будинки, особисті речі. Надійне кріплення вантажу.</p>
+            </div>
+            <div class="p-6 border border-gray-700 rounded-lg hover:border-accent transition">
+                <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-accent">🏢</span> Офісні перевезення</h3>
+                <p class="text-gray-400">Меблі, техніка, документи. Рахуємо в одну сторону.</p>
+            </div>
+            <div class="p-6 border border-gray-700 rounded-lg hover:border-accent transition">
+                <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-accent">🚚</span> Доставка вантажів</h3>
+                <p class="text-gray-400">Комерційні товари, обладнання, будматеріали. Будь-які маршрути.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Підвал -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-10 text-center">
+        <p class="text-accent font-bold text-3xl mb-4">📞 +38 050 456 32 87</p>
+        <p class="text-gray-400 text-sm">Працюємо по безготівковому розрахунку (ФОП 3 група) та за готівку.</p>
+        <p class="text-gray-500 text-sm mt-4">Вантажні перевезення по всій Україні</p>
+    </footer>
+</body>
+</html>
